@@ -1,0 +1,47 @@
+
+services:
+  - type: worker
+    name: telegram-youtube-bot
+    runtime: docker
+    plan: starter
+    repo: https://github.com/yourusername/telegram-youtube-bot.git
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: TELEGRAM_API_ID
+        sync: false
+      - key: TELEGRAM_API_HASH
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET_JSON
+        sync: false
+      - key: GOOGLE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: YOUTUBE_PRIVACY_STATUS
+        value: unlisted
+      - key: MAX_FILE_SIZE
+        value: 2147483648
+      - key: MAX_VIDEO_DURATION
+        value: 7200
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: PYTHONPATH
+        value: /app
+      - key: PYTHONUNBUFFERED
+        value: 1
+    disk:
+      name: bot-storage
+      mountPath: /app/temp
+      sizeGB: 2
+    autoDeploy: true
+
+

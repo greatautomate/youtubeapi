@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  telegram-youtube-bot:
+    build: .
+    container_name: telegram-youtube-bot
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_API_ID=${TELEGRAM_API_ID}
+      - TELEGRAM_API_HASH=${TELEGRAM_API_HASH}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - GOOGLE_CLIENT_SECRET_JSON=${GOOGLE_CLIENT_SECRET_JSON}
+      - GOOGLE_SERVICE_ACCOUNT_JSON=${GOOGLE_SERVICE_ACCOUNT_JSON}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+      - YOUTUBE_PRIVACY_STATUS=${YOUTUBE_PRIVACY_STATUS:-unlisted}
+      - MAX_FILE_SIZE=${MAX_FILE_SIZE:-2147483648}
+      - MAX_VIDEO_DURATION=${MAX_VIDEO_DURATION:-7200}
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ./credentials:/app/credentials
+      - ./session:/app/session
+      - bot-temp:/app/temp
+    networks:
+      - telegram-bot-network
+
+volumes:
+  bot-temp:
+
+networks:
+  telegram-bot-network:
+    driver: bridge
+
+

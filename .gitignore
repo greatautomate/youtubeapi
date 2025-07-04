@@ -1,0 +1,73 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Credentials and secrets
+credentials/
+*.json
+client_secret*.json
+service_account*.json
+token.json
+*.key
+*.pem
+
+# Session files
+session/
+*.session
+*.session-journal
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+logs/
+
+# Python
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+
