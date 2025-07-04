@@ -3,11 +3,9 @@ tgcrypto==1.2.5
 google-api-python-client==2.108.0
 google-auth-httplib2==0.1.1
 google-auth-oauthlib==1.1.0
-yt-dlp==2024.1.7
+yt-dlp==2023.12.30
 aiofiles==23.2.1
 aiohttp==3.9.1
 python-dotenv==1.0.0
 requests==2.31.0
 psutil==5.9.8
-
-
